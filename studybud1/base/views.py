@@ -6,11 +6,11 @@ from .models import Room
 # They are functions or classes
 # When someone goes to a specific URL, they will be sent here. Any queries to the DB will be sent here.
 
-rooms = [
-    {"id": 1, "name": "Learn Python"},
-    {"id": 2, "name": "Learn Django"},
-    {"id": 3, "name": "Front End Developers"},
-]
+# rooms = [
+#     {"id": 1, "name": "Learn Python"},
+#     {"id": 2, "name": "Learn Django"},
+#     {"id": 3, "name": "Front End Developers"},
+# ]
 
 
 def home(request):
@@ -20,9 +20,6 @@ def home(request):
 
 
 def room(request, pk):
-    room = None
-    for i in rooms:
-        if i["id"] == int(pk):
-            room = i
+    room = Room.objects.get(id=pk)
     context = {"room": room}
     return render(request, "base/room.html", context)
