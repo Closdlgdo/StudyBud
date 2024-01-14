@@ -5,9 +5,16 @@ from django.shortcuts import render
 # They are functions or classes
 # When someone goes to a specific URL, they will be sent here. Any queries to the DB will be sent here.
 
+rooms = [
+    {"id": 1, "name": "Learn Python"},
+    {"id": 2, "name": "Learn Django"},
+    {"id": 3, "name": "Front End Developers"},
+]
+
+
 
 def home(request):
-    return render(request, "home.html")
+    return render(request, "home.html", {"rooms": rooms})
 
 
 def room(request):
