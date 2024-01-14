@@ -5,7 +5,9 @@
     <title>StudyBud</title>
 </head>
 <body>
-{% include 'navbar.html' %}
+{% extends "main.html" %}
+    {% block content %}
     <h1>StudyBud Home</h1>
+    {% endblock content %}
 </body>
 </html>
