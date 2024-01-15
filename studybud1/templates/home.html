@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>StudyBud</title>
-</head>
-<body>
 {% extends "main.html" %}
-    {% block content %}
-    <h1>StudyBud Home</h1>
+
+{% block content %}
+
+<h1>StudyBud Home</h1>
+
 <div>
 
     <a href="{% url 'create-room' %}">Create Room</a>
@@ -25,5 +21,3 @@
     </div>
 </div>
     {% endblock content %}
-</body>
-</html>
