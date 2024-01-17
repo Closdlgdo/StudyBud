@@ -26,7 +26,7 @@ class Room(models.Model):
 
 
 class Message(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE) # when a room gets deleted, all the messages are deleted too.
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # when a room gets deleted, all the messages are deleted too.
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
     body = models.TextField()
     updated = models.DateTimeField(auto_now=True)

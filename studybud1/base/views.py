@@ -29,11 +29,12 @@ def room(request, pk):
 
 def createRoom(request):
     form = RoomForm()
+
     if request.method == "POST":
         form = RoomForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("home")
-        print(request.POST)
+
     context = {"form": form}
     return render(request, "base/room_form.html", context)
