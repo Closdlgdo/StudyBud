@@ -18,7 +18,10 @@
         {% for message in room_messages %}
             <div>
                 <small>@{{message.user}} {{message.created|timesince}}</small>
+                <p>{{message.body}}</p>
+                <hr>
             </div>
+        {% endfor %}
     </div>
     {% endblock content %}
 </body>
