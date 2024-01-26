@@ -62,7 +62,8 @@
         {%  for message in room_messages %}
             <div>
                 <small>@{{message.user}} {{message.created|timesince}}</small>
-                <h5>{{message.body}}</h5>
+                <small>replied to "{{message.room}}"</small>
+                <h5>{{message}}</h5>
             </div>
         {% endfor %}
     </div>
