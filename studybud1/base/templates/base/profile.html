@@ -2,19 +2,27 @@
 
 {% block content %}
 
+<style>
+    .profile-container {
+        display: grid;
+        grid-template-columns: 2fr 5fr 2fr;
+    }
+</style>
+
+
 <h1> {{user.username}}'s Profile</h1>
 
-<div>
+<div class="profile-container">
     <div>
-
+        {% include "base/topics_component.html" %}
     </div>
 
     <div>
-
+        {% include "base/feed_component.html" %}
     </div>
 
     <div>
-
+        {% include "base/activity_component.html" %}
     </div>
 </div>
 
