@@ -31,10 +31,9 @@ def loginPage(request):
         username = request.POST.get('username').lower()
         password = request.POST.get('password')
 
-        try:
-            user = User.objects.get(username=username)
-        except:
-            messages.error(request, 'User does not exist')
+        from django.shortcuts import get_object_or_404
+
+        user = get_object_or_404(User, username=username)
 
         user = authenticate(request, username=username, password=password)
 
@@ -111,9 +110,7 @@ def room(request, pk):
 def userProfile(request, pk):
     user = User.objects.get(id=pk)
     rooms = user.room_set.all()
-    room_messages = user.message_set.all()
-    topics = Topic.objects.all()
-    context = {"user": user, "rooms": rooms, "room_messages": room_messages, "topics": topics}
+    context = {"user": user, "rooms": rooms}
     return render(request, "base/profile.html", context)
 
 
@@ -136,7 +133,7 @@ def updateRoom(request, pk):
     room = Room.objects.get(id=pk)
     form = RoomForm(instance=room)
 
-    if request.user != room.host and request.user != room.host:
+    if request.user != room.host:
         return HttpResponse("Your are not allowed here!!")
 
     if request.method == "POST":
@@ -165,7 +162,7 @@ def deleteRoom(request, pk):
 
 @login_required(login_url="/login")
 def deleteMessage(request, pk):
-    room = Message.objects.get(id=pk)
+    message = Message.objects.get(id=pk)
 
     if request.user != message.user:
         return HttpResponse("Your are not allowed here!!")
