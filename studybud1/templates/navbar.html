@@ -33,12 +33,13 @@
               </svg>
             </button>
           </div>
+          {% else %}
 
           <!-- Not Logged In -->
-          <!-- <a href="/login.html">
+          <a href="{% url 'login' %}">
             <img src="./assets/avatar.svg" />
             <p>Login</p>
-          </a> -->
+          </a>
 
           {% endif %}
 
@@ -52,7 +53,7 @@
               </svg>
               Settings</a
             >
-            <a href="login.html" class="dropdown-link"
+            <a href="{% url 'logout' %}" class="dropdown-link"
               ><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
                 <title>sign-out</title>
                 <path
@@ -71,11 +72,10 @@
 
 
 
-{% if request.user.is_authenticated %}
-<p>Hello, {{request.user}}!</p>
-<a href="{% url 'logout' %}">Log Out</a>
-{% else %}
-<hr>
-<a href="{% url 'login' %}">Log In</a>
-{% endif %}
-<hr>
+<!--{% if request.user.is_authenticated %}-->
+<!--<p>Hello, {{request.user}}!</p>-->
+<!--<a href="{% url 'logout' %}">Log Out</a>-->
+<!--{% else %}-->
+<!--<hr>-->
+<!--<a href="{% url 'login' %}">Log In</a>-->
+<!--{% endif %}-->
