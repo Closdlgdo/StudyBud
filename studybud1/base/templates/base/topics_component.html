@@ -6,9 +6,11 @@
             <li>
               <a href="{% url 'home' %}" class="active">All <span>553</span></a>
             </li>
+              {% for topic in topics %}
             <li>
-              <a href="/">Python <span>232</span></a>
+              <a href="{% url 'home' %}?q={{topic.name}}">Python <span>232</span></a>
             </li>
+              {% endfor %}
           </ul>
           <a class="btn btn--link" href="topics.html">
             More
@@ -18,9 +20,3 @@
             </svg>
           </a>
         </div>
-
-{% for topic in topics %}
-<div>
-    <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
-</div>
-{% endfor %}
