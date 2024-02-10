@@ -1,3 +1,4 @@
+{% for room in rooms %}
 <div class="roomListRoom">
             <div class="roomListRoom__header">
               <a href="profile.html" class="roomListRoom__author">
@@ -39,14 +40,10 @@
               <p class="roomListRoom__topic">Python</p>
             </div>
           </div>
+{% endfor %}
 
-<div>
     {% for room in rooms %}
     <div>
-        {%  if request.user == room.host %}
-        <a href="{% url 'update-room' room.id %}">Edit</a>
-        <a href="{% url 'delete-room' room.id %}">Delete</a>
-        {% endif %}
 
         <a>@{{room.host.username}}</a>
         <h4>{{room.id}} -- <a href="{% url 'room' room.id %}">{{room.name}}</a></h4>
@@ -55,4 +52,3 @@
     </div>
 
     {% endfor %}
-</div>
