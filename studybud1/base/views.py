@@ -104,7 +104,7 @@ def room(request, pk):
         return redirect('room', pk=room.id)
 
     context = {"room": room, "room_messages": room_messages, "participants": participants}
-    return render(request, "base/room.html", context)
+    return render(request, "base/room_old.html", context)
 
 
 def userProfile(request, pk):
