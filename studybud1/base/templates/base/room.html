@@ -62,11 +62,11 @@
             <div class="room__header scroll">
               <div class="room__info">
                 <h3>{{room.name}}</h3>
-                <span>{{room.created|timesince}}</span>
+                <span>{{room.created|timesince}} ago</span>
               </div>
               <div class="room__hosted">
                 <p>Hosted By</p>
-                <a href="#" class="room__author">
+                <a href="{% url 'user_profile' room.host.id %}" class="room__author">
                   <div class="avatar avatar--small">
                     <img src="https://randomuser.me/api/portraits/men/37.jpg" />
                   </div>
