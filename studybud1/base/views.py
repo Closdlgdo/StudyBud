@@ -129,7 +129,7 @@ def createRoom(request):
             return redirect("home")
 
     context = {"form": form}
-    return render(request, "base/room_form.html", context)
+    return render(request, "base/room_form_old.html", context)
 
 
 @login_required(login_url="/login")
@@ -147,7 +147,7 @@ def updateRoom(request, pk):
             return redirect("home")
 
     context = {"form": form}
-    return render(request, "base/room_form.html", context)
+    return render(request, "base/room_form_old.html", context)
 
 
 @login_required(login_url="/login")
