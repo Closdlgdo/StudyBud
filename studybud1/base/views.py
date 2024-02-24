@@ -192,4 +192,10 @@ def updateUser(request):
     user = request.use
     form = UserForm(instance=request.user)
 
+    if request.method == "POST":
+        form = UserForm(request.POST, request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect("user-profile", pk=user.id)
+
     return render(request, "base/update_user.html", {"form": form})
