@@ -170,7 +170,7 @@ def deleteRoom(request, pk):
         room.delete()
         return redirect("home")
 
-    return render(request, "base/delete.html", {'obj': room})
+    return render(request, "base/delete_old.html", {'obj': room})
 
 
 @login_required(login_url="/login")
@@ -184,7 +184,7 @@ def deleteMessage(request, pk):
         message.delete()
         return redirect("home")
 
-    return render(request, "base/delete.html", {'obj': message})
+    return render(request, "base/delete_old.html", {'obj': message})
 
 
 @login_required(login_url="/login")
