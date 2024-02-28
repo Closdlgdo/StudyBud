@@ -199,3 +199,7 @@ def updateUser(request):
             return redirect("user-profile", pk=user.id)
 
     return render(request, "base/update_user.html", {"form": form})
+
+
+def topicsPage(request):
+    return render(request, "base/topics_old.html", {"topics": topics})
