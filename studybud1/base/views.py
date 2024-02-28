@@ -202,4 +202,6 @@ def updateUser(request):
 
 
 def topicsPage(request):
-    return render(request, "base/topics_old.html", {"topics": topics})
+    q = request.GET.get('q') if request.GET.get('q') is not None else ''
+    topics = Topic.objects.filter(name__icontains=q)
+    return render(request, "base/topics.html", {"topics": topics})
