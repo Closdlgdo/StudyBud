@@ -9,4 +9,4 @@ def getRoutes(request):
         'GET /api/rooms',
         'GET /api/rooms/:id',
     ]
-    return JsonResponse(routes, safe=False)
+    return Response(routes)
