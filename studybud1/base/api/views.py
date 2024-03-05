@@ -16,8 +16,6 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getRooms(request):
-    rooms = [
-        'GET /api/rooms',
-        'GET /api/rooms/:id',
-    ]
-    return Response(rooms)
+    rooms = Room.objects.all()
+    serializer = RoomSerializer(rooms, many=True)
+    return Response(serializer.data)
