@@ -10,3 +10,11 @@ def getRoutes(request):
         'GET /api/rooms/:id',
     ]
     return Response(routes)
+
+
+def getRooms(request):
+    rooms = [
+        'GET /api/rooms',
+        'GET /api/rooms/:id',
+    ]
+    return Response(rooms)
